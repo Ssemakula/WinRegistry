@@ -35,5 +35,11 @@ namespace WinRegistry
             SettingsForm settingsForm = new SettingsForm();
             settingsForm.ShowDialog();
         }
+
+        private void colourPlayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveInRegistry saveInRegistry = new SaveInRegistry();
+            saveInRegistry.ShowDialog();
+        }
     }
 }

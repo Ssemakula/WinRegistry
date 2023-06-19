@@ -32,9 +32,9 @@ namespace SsCommon
     }
 
  
-    public class CommonProcs //Use this for application level stuff
+    public static class CommonProcs //Use this for application level stuff
     {
-        public static void Beep() //Make a system beep
+        public static void MyBeep() //Make a system beep
         {
             SystemSounds.Beep.Play();
         }

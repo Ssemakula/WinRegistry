@@ -10,6 +10,10 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static WinRegistry.Globals;
+using static WinRegistry.RegChecks;
+using static SsCommon.CommonProcs;
+
 
 namespace WinRegistry
 {
@@ -71,19 +75,21 @@ namespace WinRegistry
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
-            RegistryKey myRegKeys, myRegKeySub;
+            RegistryKey myRegKeys;
 
-            myRegKeys = Registry.CurrentUser.OpenSubKey(KeyValue);
+            /*            myRegKeys = Registry.CurrentUser.OpenSubKey(mainReg);
 
-            if (myRegKeys == null) //Key doesn't exist
-            {
-                Registry.CurrentUser.CreateSubKey(KeyValue, RegistryKeyPermissionCheck.ReadWriteSubTree);
-            }
-            myRegKeys = Registry.CurrentUser.OpenSubKey(KeyValue + subKeyValue);
-            if (myRegKeys == null) // Subkey does exist 
-            {
-                Registry.CurrentUser.CreateSubKey(KeyValue + subKeyValue, RegistryKeyPermissionCheck.ReadWriteSubTree);
-            }
+                        if (myRegKeys == null) //Key doesn't exist
+                        {
+                            Registry.CurrentUser.CreateSubKey(mainReg, RegistryKeyPermissionCheck.ReadWriteSubTree);
+                        }
+                        myRegKeys = Registry.CurrentUser.OpenSubKey(subReg);
+                        if (myRegKeys == null) // Subkey does exist 
+                        {
+                            Registry.CurrentUser.CreateSubKey(subReg, RegistryKeyPermissionCheck.ReadWriteSubTree);
+                        }*/
+
+            CheckRegKeys();
 
             // Read entries and save to struct
             SetData();
@@ -95,7 +101,7 @@ namespace WinRegistry
                 myRegKeys.Close();
             }
             else
-                CommonProcs.Beep();
+                MyBeep();
         }
 
         private void btn_Save_Click(object sender, EventArgs e)
@@ -105,32 +111,33 @@ namespace WinRegistry
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            RegistryKey myRegKeys, myRegKeySub;
+            RegistryKey myRegKeys;
 
-            myRegKeys = Registry.CurrentUser.OpenSubKey(KeyValue);
+            myRegKeys = Registry.CurrentUser.OpenSubKey(mainReg);
 
             if (myRegKeys == null) //Key doesn't exist
             {
-                CommonProcs.Beep();
+                MyBeep();
                 return;
             }
-            myRegKeys = Registry.CurrentUser.OpenSubKey(KeyValue + subKeyValue);
+            myRegKeys = Registry.CurrentUser.OpenSubKey(subReg);
             if (myRegKeys == null) // Subkey does exist 
             {
-                CommonProcs.Beep();
+                MyBeep();
                 return;
             }
 
             // Delete
-            if ((myRegKeys = Registry.CurrentUser.OpenSubKey(KeyValue + subKeyValue, true)) != null)
-            // if(myRegKeys != null) i.e check whether it exists first
+            if ((myRegKeys = Registry.CurrentUser.OpenSubKey(subReg, true)) != null)
+            // if(myRegKeys != null) open for write while checking if it exists
             {
-                myRegKeys.Close(); //Not so sure if this is necessary. Pur in for completeness to avoid deleting open key
-                Registry.CurrentUser.DeleteSubKey(KeyValue + subKeyValue, false); // Delete and ignore any exceptions
+                myRegKeys.Close(); //Not so sure if this is necessary. Put in for completeness to avoid deleting open key
+                Registry.CurrentUser.DeleteSubKey(subReg, false); // Delete and ignore any exceptions
+                
                 // delete value behaves the same myRegKeys.DeleteValue(<value>, false);
             }
             else
-                CommonProcs.Beep();
+                MyBeep();
         }
     }
 }

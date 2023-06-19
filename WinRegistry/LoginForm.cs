@@ -11,6 +11,8 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static SsCommon.CommonProcs;
+
 
 namespace WinRegistry
 {
@@ -43,7 +45,7 @@ namespace WinRegistry
                 this.Close();
             }
             else
-                CommonProcs.Beep();
+                MyBeep();
 
             // key.SetValue("")
 
@@ -54,7 +56,7 @@ namespace WinRegistry
         {
             if (!AdminUse.IsUserAdministrator())
             {
-                CommonProcs.Beep();
+                MyBeep();
                 MessageBox.Show("Has to be run as Administrator for this option");
                 return;
             }
@@ -80,7 +82,7 @@ namespace WinRegistry
                 this.Close();
             }
             else
-                CommonProcs.Beep();
+                MyBeep();
 
         }
 
