@@ -12,12 +12,6 @@ namespace WinRegistry
 
         }
 
-        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LoginForm loginForm = new LoginForm();
-            loginForm.ShowDialog();
-        }
-
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Application.MessageLoop)
@@ -28,6 +22,18 @@ namespace WinRegistry
             {
                 System.Environment.Exit(1);
             }
+        }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.ShowDialog();
         }
     }
 }
