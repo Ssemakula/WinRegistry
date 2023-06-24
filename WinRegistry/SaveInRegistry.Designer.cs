@@ -41,6 +41,7 @@
             fontDialog1 = new FontDialog();
             btn_SaveFont = new Button();
             btn_LoadFont = new Button();
+            comboBox_SaveInt = new ComboBox();
             SuspendLayout();
             // 
             // btnBackCol
@@ -144,11 +145,21 @@
             btn_LoadFont.UseVisualStyleBackColor = true;
             btn_LoadFont.Click += btn_LoadFont_Click;
             // 
+            // comboBox_SaveInt
+            // 
+            comboBox_SaveInt.FormattingEnabled = true;
+            comboBox_SaveInt.Items.AddRange(new object[] { "Maissan", "Phina", "Paulo", "Anna", "Brenda", "Gentrix", "Chero" });
+            comboBox_SaveInt.Location = new Point(64, 274);
+            comboBox_SaveInt.Name = "comboBox_SaveInt";
+            comboBox_SaveInt.Size = new Size(267, 23);
+            comboBox_SaveInt.TabIndex = 11;
+            // 
             // SaveInRegistry
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(529, 584);
+            Controls.Add(comboBox_SaveInt);
             Controls.Add(btn_LoadFont);
             Controls.Add(btn_SaveFont);
             Controls.Add(btn_Fonts);
@@ -183,5 +194,6 @@
         private FontDialog fontDialog1;
         private Button btn_SaveFont;
         private Button btn_LoadFont;
+        private ComboBox comboBox_SaveInt;
     }
 }

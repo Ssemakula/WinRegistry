@@ -124,7 +124,7 @@ namespace WinRegistry
 
             if (PanelPosExist())
             {
-                obj = myRegKeys.GetValue(myPanelPosition, null);
+                obj = myRegKeys.GetValue(myPanelPosition, "12,41");
                 panelPosString = obj.ToString();
                 this.panel_Size.Location = (Point)panelPosition.ConvertFromString(panelPosString);
                 this.trackBar_XPanel.Value = this.panel_Size.Location.X;
