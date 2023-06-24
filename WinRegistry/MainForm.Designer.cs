@@ -35,6 +35,7 @@
             toolsToolStripMenuItem = new ToolStripMenuItem();
             settingsToolStripMenuItem = new ToolStripMenuItem();
             colourPlayToolStripMenuItem = new ToolStripMenuItem();
+            boxSizeToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -70,7 +71,7 @@
             // 
             // toolsToolStripMenuItem
             // 
-            toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { settingsToolStripMenuItem, colourPlayToolStripMenuItem });
+            toolsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { settingsToolStripMenuItem, colourPlayToolStripMenuItem, boxSizeToolStripMenuItem });
             toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             toolsToolStripMenuItem.Size = new Size(46, 20);
             toolsToolStripMenuItem.Text = "Tools";
@@ -78,22 +79,29 @@
             // settingsToolStripMenuItem
             // 
             settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            settingsToolStripMenuItem.Size = new Size(180, 22);
+            settingsToolStripMenuItem.Size = new Size(135, 22);
             settingsToolStripMenuItem.Text = "Settings";
             settingsToolStripMenuItem.Click += settingsToolStripMenuItem_Click;
             // 
             // colourPlayToolStripMenuItem
             // 
             colourPlayToolStripMenuItem.Name = "colourPlayToolStripMenuItem";
-            colourPlayToolStripMenuItem.Size = new Size(180, 22);
+            colourPlayToolStripMenuItem.Size = new Size(135, 22);
             colourPlayToolStripMenuItem.Text = "Colour Play";
             colourPlayToolStripMenuItem.Click += colourPlayToolStripMenuItem_Click;
+            // 
+            // boxSizeToolStripMenuItem
+            // 
+            boxSizeToolStripMenuItem.Name = "boxSizeToolStripMenuItem";
+            boxSizeToolStripMenuItem.Size = new Size(135, 22);
+            boxSizeToolStripMenuItem.Text = "Box Size";
+            boxSizeToolStripMenuItem.Click += boxSizeToolStripMenuItem_Click;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1393, 638);
+            ClientSize = new Size(1393, 711);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
@@ -114,5 +122,6 @@
         private ToolStripMenuItem toolsToolStripMenuItem;
         private ToolStripMenuItem settingsToolStripMenuItem;
         private ToolStripMenuItem colourPlayToolStripMenuItem;
+        private ToolStripMenuItem boxSizeToolStripMenuItem;
     }
 }

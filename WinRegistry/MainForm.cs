@@ -41,5 +41,11 @@ namespace WinRegistry
             SaveInRegistry saveInRegistry = new SaveInRegistry();
             saveInRegistry.ShowDialog();
         }
+
+        private void boxSizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Size2Reg size2Reg = new Size2Reg();
+            size2Reg.ShowDialog();
+        }
     }
 }

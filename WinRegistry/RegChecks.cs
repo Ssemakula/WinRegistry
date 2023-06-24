@@ -28,7 +28,7 @@ namespace WinRegistry
             }
         }
 
-        public static bool colorsExist()
+        public static bool ColorsExist()
         {
             object objFC, objBC;
             RegistryKey myRegKeys;
@@ -42,6 +42,34 @@ namespace WinRegistry
             return false;
 
         }
+
+        public static bool WindSizeExist()
+        {
+            object obj;
+            RegistryKey myRegKeys;
+
+            myRegKeys = Registry.CurrentUser.OpenSubKey(subReg, true);
+
+            obj = myRegKeys.GetValue(myWindSize, null);
+
+            if (obj != null) { return true; }
+            return false;
+
+        }
+
+        public static bool PanelPosExist()
+        {
+            object obj;
+            RegistryKey myRegKeys;
+
+            myRegKeys = Registry.CurrentUser.OpenSubKey(subReg, true);
+
+            obj = myRegKeys.GetValue(myPanelPosition, null);
+
+            if (obj != null) { return true; }
+            return false;
+
+        }
     }
 
  
@@ -52,5 +80,7 @@ namespace WinRegistry
         public const string myBackColor = "myBackColor";
         public const string myForeColor = "myForeColor";
         public const string myFont = "myFont";
+        public const string myWindSize = "WindowSize";
+        public const string myPanelPosition = "myPanelPosition";
     }
 }

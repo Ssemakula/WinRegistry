@@ -163,7 +163,7 @@ namespace WinRegistry
                 this.txt_Fonts.Font = fontDialog1.Font;
 
             }
-                
+
         }
     }
 }
